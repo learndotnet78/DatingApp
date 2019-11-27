@@ -23,6 +23,7 @@ import { MemberListResolver } from './_resolvers/member-list.resolvers';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolvers';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -66,6 +67,7 @@ export function tokenGetter(){
    ],
    providers: [
       AuthService,
+      PreventUnsavedChanges,
       ErrorInterceptorProvider,
       MemberDetailResolver,
       MemberListResolver,
